@@ -4,18 +4,20 @@ import { styles } from "../ressources/styles";
 import { placeReducer, initialState } from "../reducers/places";
 import { actionCreators } from "../reducers/shared";
 import Query from "./Query";
+import { GoogleMapsKey } from "@env";
 
 export default function AllQueries() {
   const [state, dispatch] = useReducer(placeReducer, initialState);
   const [cleanedPlaces, setCleanedPlaces] = React.useState();
 
   useEffect(() => {
+    console.log(process.env.GoogleMapsKey, "##################");
     async function fetchPlaces() {
       dispatch(actionCreators.loading());
 
       try {
         const response = await fetch(
-          "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=31.598763,-8.029373&radius=1000&rankeby=distance&keyword=pharmacie&key=AIzaSyDbL6eGtZoFeuFm02UEpeZmYp7o5kVEKbo"
+          `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=31.598763,-8.029373&radius=1000&rankeby=distance&keyword=pharmacie&key=${GoogleMapsKey}`
         );
         const places = await response.json();
 
