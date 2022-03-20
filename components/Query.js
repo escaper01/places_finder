@@ -3,22 +3,31 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { View, Text, Image } from "react-native";
 import { styles } from "../ressources/styles";
 import { GoogleMapsKey } from "@env";
+import noImage from "../assets/no-image.png";
 
 export default function Query({ data }) {
-  const { placeID, name, rating } = data;
+  const { placeID, name, rating, photo_reference } = data;
 
   let stars = new Array(rating).fill(0);
   let rest = 5 - rating;
   let emptyStars = new Array(rest).fill(0);
 
+  // console.log(photo_reference, "REFFFFFFFFFFFFFF");
+
+  const imageUrl = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photo_reference}&key=${GoogleMapsKey}`;
+
   return (
     <View style={styles.result_query}>
-      <Image
-        style={styles.result_image}
-        source={{
-          uri: `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=Aap_uECH2YCNH73qY_1NbomozuSNj4Hp8dYSI5UJN0w6Y185MHP3XcKBav6IY8a9Hv54pQEU_vC4NDULL8NWEtaAgYdgq0MptfiDQ7cFj5nwb5qzlN33tVsOnIAbgsTUMCiaEPhn4nndzq4YDdqdCfVKNHQJKRCN0LONL4F0jU5YQ6Y8dJa8&key=${GoogleMapsKey}`,
-        }}
-      />
+      {photo_reference ? (
+        <Image
+          style={styles.result_image}
+          source={{
+            uri: imageUrl,
+          }}
+        />
+      ) : (
+        <Image style={styles.result_image} source={noImage} />
+      )}
       <Text style={styles.result_text}>{name}</Text>
       <View style={styles.result_stars}>
         {stars.map((_, i) => (

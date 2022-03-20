@@ -18,7 +18,6 @@ export default function Selection({ route, navigation }) {
             selectedOption: element.name,
           };
           navigation.push("Result", data);
-          console.log("pressed on-- ", element.name);
         }}
         key={index}
       >

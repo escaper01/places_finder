@@ -1,7 +1,8 @@
-import { StyleSheet, Text, View } from "react-native";
+import React, { createContext } from "react";
+// import { StyleSheet, Text, View } from "react-native";
 import Home from "./screens/Home";
 import Selection from "./screens/Selection";
-import Result from "./screens/Result";
+import { Result } from "./screens/Result";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 

@@ -7,11 +7,13 @@ export const styles = StyleSheet.create({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "space-evenly",
+    // borderColor: "red",
+    // borderWidth: 1,
   },
 
   home_image: {
-    width: 360,
-    height: 400,
+    width: "100%",
+    height: "70%",
   },
   home_icon: {},
 
@@ -19,6 +21,24 @@ export const styles = StyleSheet.create({
     color: "grey",
     fontSize: 24,
     textAlign: "center",
+  },
+  home_btn: {
+    justifyContent: "center",
+    alignItems: "center",
+    alignSelf: "flex-end",
+    height: 40,
+    width: "30%",
+    padding: 5,
+    marginRight: "5%",
+    width: 80,
+    // marginTop: "2%",
+    // marginBottom: "4%",
+    // borderRadius: 10,
+    backgroundColor: "#fa7e61",
+  },
+  home_btn_text: {
+    fontSize: 20,
+    color: "white",
   },
 
   //SELECTION
@@ -72,7 +92,7 @@ export const styles = StyleSheet.create({
     height: 50,
     margin: 12,
     borderWidth: 1,
-    borderRadius: 10,
+    // borderRadius: 10,
     borderColor: "#4c1e4f",
     padding: 10,
   },
@@ -84,7 +104,7 @@ export const styles = StyleSheet.create({
     padding: 5,
     marginTop: "2%",
     marginBottom: "4%",
-    borderRadius: 10,
+    // borderRadius: 10,
     backgroundColor: "#fa7e61",
   },
   result_btn_text: {

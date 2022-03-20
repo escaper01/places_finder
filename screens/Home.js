@@ -56,15 +56,11 @@ export default function Home({ navigation }) {
       {location && (
         <>
           <MaterialIcons name="check-circle" size={30} color="green" />
-          <Text
-          // onPress={() => {
-          //   goNext();
-          // }}
-          >
+          <Text>
             {location.coords.latitude} , {location.coords.longitude}
           </Text>
           <TouchableOpacity
-            style={styles.selection_btn}
+            style={styles.home_btn}
             activeOpacity={0.7}
             onPress={() => {
               const data = {
@@ -74,7 +70,7 @@ export default function Home({ navigation }) {
               navigation.push("Selection", data);
             }}
           >
-            <Text>Next</Text>
+            <Text style={styles.home_btn_text}>Next</Text>
           </TouchableOpacity>
         </>
       )}
